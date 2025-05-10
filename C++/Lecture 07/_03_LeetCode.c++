@@ -16,8 +16,8 @@ bool isPowerOfTwo(int n) {
 }
 
 int main() {
-    int n;
 
+    int n;
     cout << "Enter a number: ";
     cin >> n;
 

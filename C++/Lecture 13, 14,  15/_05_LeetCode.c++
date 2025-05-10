@@ -7,6 +7,7 @@ int squareRootUsingBinarySearch(int num) {
     int low = 1, high = num, ans = 0;
     while (low <= high) {
         int mid = low + (high - low) / 2;
+        cout << mid << " " << num / mid << endl; 
         if (mid <= num / mid) {
             ans = mid;
             low = mid + 1;

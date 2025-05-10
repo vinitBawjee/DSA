@@ -57,3 +57,96 @@ int main() {
 
     return 0;
 }
+
+
+// Dry Run 
+// low = 40   // max(arr)
+// high = 100 // sum(arr)
+// answer = -1
+
+// Loop 1:
+//     mid = (40 + 100) / 2 = 70
+//     check isPossible(arr, 4, 2, 70)
+
+//     pageSum = 0
+//     studentCount = 1
+
+//     arr[0] = 10 -> pageSum = 10
+//     arr[1] = 20 -> pageSum = 30
+//     arr[2] = 30 -> pageSum = 60
+//     arr[3] = 40 -> pageSum + 40 = 100 > 70
+//                  new student → studentCount = 2
+//                  pageSum = 40
+
+//     studentCount = 2 ≤ m (possible)
+//     → answer = 70
+//     → high = 69
+
+// Loop 2:
+//     mid = (40 + 69) / 2 = 54
+//     check isPossible(arr, 4, 2, 54)
+
+//     pageSum = 0, studentCount = 1
+
+//     arr[0] = 10 → pageSum = 10
+//     arr[1] = 20 → pageSum = 30
+//     arr[2] = 30 → pageSum + 30 = 60 > 54
+//                → studentCount = 2, pageSum = 30
+//     arr[3] = 40 → pageSum + 40 = 70 > 54
+//                → studentCount = 3 > m (not possible)
+
+//     → low = 55
+
+// Loop 3:
+//     mid = (55 + 69) / 2 = 62
+//     check isPossible(..., 62)
+
+//     arr[0] = 10 → pageSum = 10
+//     arr[1] = 20 → pageSum = 30
+//     arr[2] = 30 → pageSum = 60
+//     arr[3] = 40 → pageSum + 40 = 100 > 62
+//                → studentCount = 2, pageSum = 40
+
+//     → possible
+//     → answer = 62
+//     → high = 61
+
+// Loop 4:
+//     mid = (55 + 61) / 2 = 58
+//     isPossible(..., 58)
+
+//     arr[0] = 10 → pageSum = 10
+//     arr[1] = 20 → pageSum = 30
+//     arr[2] = 30 → pageSum = 60 > 58 → new student
+//                → studentCount = 2, pageSum = 30
+//     arr[3] = 40 → pageSum = 70 > 58 → studentCount = 3 > m (not possible)
+
+//     → low = 59
+
+// Loop 5:
+//     mid = (59 + 61) / 2 = 60
+//     isPossible(..., 60)
+
+//     arr[0] = 10 → pageSum = 10
+//     arr[1] = 20 → pageSum = 30
+//     arr[2] = 30 → pageSum = 60
+//     arr[3] = 40 → new student, pageSum = 40 → studentCount = 2
+
+//     → possible
+//     → answer = 60
+//     → high = 59
+
+// Loop 6:
+//     mid = (59 + 59) / 2 = 59
+//     isPossible(..., 59)
+
+//     arr[0] = 10 → pageSum = 10
+//     arr[1] = 20 → pageSum = 30
+//     arr[2] = 30 → pageSum = 60 > 59 → studentCount = 2, pageSum = 30
+//     arr[3] = 40 → pageSum = 70 > 59 → studentCount = 3 > m (not possible)
+
+//     → low = 60
+
+// Loop ends (low > high)
+
+// Final Answer = 60
